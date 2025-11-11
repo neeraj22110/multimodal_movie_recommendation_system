@@ -1,0 +1,7 @@
+Component,Primary Technology,Input Type,Output
+Face Recognition,DeepFace + OpenCV,Webcam/Image,Emotion Labels
+Audio Analysis,librosa + LSTM,Microphone/Audio,Emotion Scores
+Text Processing,NLTK VADER,Text Input,Sentiment Scores
+Movie Database,SQLite,Movie Files,Movie Metadata
+Video Streaming,Flask + HTML5,HTTP Requests,Video Stream
+Web Interface,Bootstrap + JS,User Interface,Web Pages

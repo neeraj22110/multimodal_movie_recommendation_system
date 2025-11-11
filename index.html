@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Analysis & Movie Recommendation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>🎭 Emotion Analysis & Movie Recommendations</h1>
+            <p>अपनी भावनाओं को analyze करें और personalized movies पाएं</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="card">
+                    <div class="card__body">
+                        <h2>अपनी भावनाएं बताएं</h2>
+                        
+                        <!-- Text Input -->
+                        <div class="input-group">
+                            <label class="form-label" for="textInput">
+                                📝 Text Input - अपनी feelings लिखें
+                            </label>
+                            <textarea 
+                                id="textInput" 
+                                class="form-control" 
+                                rows="4" 
+                                placeholder="आज मैं कैसा feel कर रहा हूं..."
+                            ></textarea>
+                        </div>
+
+                        <!-- Image Upload -->
+                        <div class="input-group">
+                            <label class="form-label" for="imageInput">
+                                📷 Image Upload - अपनी photo upload करें
+                            </label>
+                            <input 
+                                type="file" 
+                                id="imageInput" 
+                                class="form-control file-input" 
+                                accept="image/*"
+                            >
+                            <div id="imagePreview" class="file-preview"></div>
+                        </div>
+
+                        <!-- Audio Upload -->
+                        <div class="input-group">
+                            <label class="form-label" for="audioInput">
+                                🎤 Audio Upload - अपनी आवाज़ record करें या file upload करें
+                            </label>
+                            <div class="audio-controls">
+                                <button id="recordBtn" class="btn btn--secondary">
+                                    🎤 Record Audio
+                                </button>
+                                <input 
+                                    type="file" 
+                                    id="audioInput" 
+                                    class="form-control file-input" 
+                                    accept="audio/*"
+                                >
+                            </div>
+                            <div id="audioPreview" class="file-preview"></div>
+                        </div>
+
+                        <!-- Analyze Button -->
+                        <button id="analyzeBtn" class="btn btn--primary btn--full-width btn--lg">
+                            ✨ Analyze My Emotions
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading State -->
+            <section id="loadingSection" class="loading-section hidden">
+                <div class="loading-spinner"></div>
+                <p>आपकी भावनाओं को analyze कर रहे हैं...</p>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <div class="card">
+                    <div class="card__body">
+                        <h2>🎯 Detected Emotions</h2>
+                        <div id="emotionResults" class="emotion-results"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Movie Recommendations Section -->
+            <section id="moviesSection" class="movies-section hidden">
+                <h2>🎬 Recommended Movies for You</h2>
+                <div id="movieGrid" class="movie-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Movie Player Modal -->
+    <div id="movieModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="movieTitle">Movie Title</h3>
+                <button id="closeModal" class="btn btn--secondary">❌ Close</button>
+            </div>
+            <div class="modal-body">
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <h4>🎥 Movie Player</h4>
+                        <p>यह demo version है। Real implementation में यहाँ actual video player होगा।</p>
+                        <div class="movie-details">
+                            <p><strong>Genre:</strong> <span id="movieGenre"></span></p>
+                            <p><strong>Rating:</strong> <span id="movieRating"></span> ⭐</p>
+                            <p><strong>Year:</strong> <span id="movieYear"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="backToRecommendations" class="btn btn--outline">
+                        ← Back to Recommendations
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Toast -->
+    <div id="errorToast" class="toast hidden">
+        <span id="errorMessage"></span>
+        <button id="closeToast">❌</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
